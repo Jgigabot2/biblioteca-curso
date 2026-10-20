@@ -1,0 +1,9 @@
+# Revisores automáticos de cada carpeta.
+# Reemplaza @Jgigabot2 por el usuario del líder de cada equipo cuando los tengas.
+# Testing revisa lo que construyen frontend y backend; backend revisa las pruebas.
+
+/backend/      @Jgigabot2
+/frontend/     @Jgigabot2
+/tests/        @Jgigabot2
+/contrato.md   @Jgigabot2
+/.github/      @Jgigabot2

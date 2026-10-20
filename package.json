@@ -1,0 +1,13 @@
+{
+  "name": "biblioteca-curso",
+  "version": "0.1.0",
+  "description": "Proyecto del curso para practicar trabajo en equipo con ramas: frontend, backend y testing.",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

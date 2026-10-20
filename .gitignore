@@ -1,0 +1,10 @@
+# Dependencias: se instalan con npm install, nunca se suben
+node_modules/
+
+# Configuración local y secretos
+.env
+
+# Archivos del sistema y del editor
+.DS_Store
+Thumbs.db
+.vscode/

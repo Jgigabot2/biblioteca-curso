@@ -1,0 +1,83 @@
+/* Biblioteca del Curso · estilos del equipo frontend
+   Idea visual: fichas de catálogo de biblioteca con sello de préstamo */
+:root {
+  --fondo: #E9EEF1;
+  --papel: #FFFFFF;
+  --papel-2: #F4F7F8;
+  --tinta: #18242C;
+  --tenue: #5C6B75;
+  --linea: #CFD8DE;
+  --azul: #1F4E79;
+  --verde: #0F7B5F;
+  --vino: #A3243B;
+  --titulos: 'Bitter', Georgia, 'Times New Roman', serif;
+  --texto: 'Work Sans', 'Segoe UI', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fondo: #10171C; --papel: #172128; --papel-2: #1D2932; --tinta: #E5ECF0; --tenue: #9AAAB4; --linea: #2C3A44;
+    --azul: #7FB1E3; --verde: #4CC59C; --vino: #F07A8E; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fondo: #10171C; --papel: #172128; --papel-2: #1D2932; --tinta: #E5ECF0; --tenue: #9AAAB4; --linea: #2C3A44;
+  --azul: #7FB1E3; --verde: #4CC59C; --vino: #F07A8E; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--fondo); color: var(--tinta); font-family: var(--texto); font-size: 16px; line-height: 1.5; }
+:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+
+.cabecera { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  padding-block: 18px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--papel); border-bottom: 3px double var(--linea); }
+.marca { display: flex; align-items: center; gap: 14px; }
+.logo { width: 46px; height: 46px; border: 2px solid var(--azul); color: var(--azul); border-radius: 50%;
+  display: grid; place-items: center; font-family: var(--titulos); font-weight: 800; letter-spacing: .04em; }
+h1 { font-family: var(--titulos); font-weight: 800; font-size: clamp(22px, 4vw, 30px); margin: 0; line-height: 1.1; }
+.marca p { margin: 2px 0 0; color: var(--tenue); font-size: 14px; }
+.modo { font-family: var(--mono); font-size: 12px; border: 1px dashed var(--linea); border-radius: 20px; padding: 4px 12px; color: var(--tenue); }
+.modo.api { border-style: solid; border-color: var(--verde); color: var(--verde); }
+
+.contenido { max-width: 1100px; margin: 0 auto; padding-block: 24px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.herramientas { display: flex; flex-wrap: wrap; gap: 14px; align-items: flex-end; }
+.campo { display: flex; flex-direction: column; gap: 4px; flex: 1 1 260px; min-width: 0; }
+.campo-corto { flex: 0 1 220px; }
+.campo label { font-size: 13px; font-weight: 600; color: var(--tenue); }
+input, select { font: inherit; color: var(--tinta); background: var(--papel); border: 1px solid var(--linea); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.resumen { color: var(--tenue); font-size: 14px; margin: 16px 0 10px; }
+
+.catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.ficha { background: var(--papel); border: 1px solid var(--linea); border-radius: 6px; padding: 14px 16px 16px; position: relative;
+  background-image: repeating-linear-gradient(var(--papel) 0 27px, var(--papel-2) 27px 28px); display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ficha::before { content: ''; position: absolute; left: 50%; bottom: 10px; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: var(--fondo); border: 1px solid var(--linea); }
+.ficha-cabeza { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.signatura { font-family: var(--mono); font-size: 12px; color: var(--tenue); }
+.sello { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; border: 2px solid currentColor; border-radius: 4px; padding: 1px 6px; transform: rotate(-4deg); }
+.sello.disponible { color: var(--verde); }
+.sello.prestado { color: var(--vino); }
+.ficha h3 { font-family: var(--titulos); font-weight: 600; font-size: 19px; line-height: 1.25; margin: 4px 0 0; }
+.autor { margin: 0; color: var(--tenue); font-size: 14.5px; }
+.categoria { font-size: 12px; color: var(--azul); font-weight: 600; }
+.acciones { margin-top: auto; padding-top: 8px; padding-bottom: 18px; }
+
+.boton { font: inherit; font-weight: 600; border: 1px solid var(--azul); background: var(--azul); color: var(--papel); border-radius: 8px; padding: 8px 14px; cursor: pointer; }
+.boton.secundario { background: transparent; color: var(--azul); }
+.boton:disabled { opacity: .45; cursor: not-allowed; }
+.form-prestamo { display: flex; flex-wrap: wrap; gap: 8px; }
+.form-prestamo input { flex: 1 1 140px; padding: 8px 10px; }
+
+.vacio { grid-column: 1 / -1; text-align: center; color: var(--tenue); background: var(--papel); border: 1px dashed var(--linea); border-radius: 8px; padding: 28px 16px; }
+
+.prestamos { margin-top: 36px; }
+.prestamos h2 { font-family: var(--titulos); font-size: 22px; margin: 0 0 10px; }
+.lista-prestamos { list-style: none; padding: 0; margin: 0; background: var(--papel); border: 1px solid var(--linea); border-radius: 8px; }
+.lista-prestamos li { display: flex; flex-wrap: wrap; gap: 4px 14px; padding: 10px 14px; border-top: 1px solid var(--linea); font-size: 15px; }
+.lista-prestamos li:first-child { border-top: none; }
+.lista-prestamos .quien { font-weight: 600; }
+.lista-prestamos .cuando { margin-left: auto; font-family: var(--mono); font-size: 12.5px; color: var(--tenue); }
+
+.aviso { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); max-width: min(92vw, 480px);
+  background: var(--tinta); color: var(--papel); padding: 10px 16px; border-radius: 8px; font-size: 14.5px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.aviso.error { background: var(--vino); color: #fff; }

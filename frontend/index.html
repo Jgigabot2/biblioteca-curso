@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biblioteca del Curso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;800&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="cabecera">
+    <div class="marca">
+      <span class="logo" aria-hidden="true">BC</span>
+      <div>
+        <h1>Biblioteca del Curso</h1>
+        <p>Catálogo y préstamos</p>
+      </div>
+    </div>
+    <span id="modo" class="modo"></span>
+  </header>
+
+  <main class="contenido">
+    <section class="herramientas" aria-label="Buscar libros">
+      <div class="campo">
+        <label for="buscador">Buscar por título o autor</label>
+        <input id="buscador" type="search" placeholder="Ej.: García Márquez, Java…" autocomplete="off">
+      </div>
+      <!-- Ronda 3: aquí va el selector de categoría -->
+    </section>
+
+    <p id="resumen" class="resumen"></p>
+    <section id="catalogo" class="catalogo" aria-live="polite"></section>
+
+    <section class="prestamos">
+      <h2>Préstamos activos</h2>
+      <ol id="lista-prestamos" class="lista-prestamos"></ol>
+    </section>
+  </main>
+
+  <div id="aviso" class="aviso" role="status" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
